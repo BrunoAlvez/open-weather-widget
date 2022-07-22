@@ -115,3 +115,24 @@ IconData weatherIcon(int? weatherId) {
 
   return WeatherIcons.fromString(iconString, fallback: WeatherIcons.na);
 }
+
+String translateWeather(String description) {
+  switch (description) {
+    case 'clear sky':
+      return 'céu limpo';
+    case 'scattered clouds':
+      return 'nuvens espalhadas';
+    case 'broken clouds':
+      return 'poucas nuvens';
+    case 'light rain':
+      return 'chuva suave';
+    case 'heavy rain':
+      return 'chuva forte';
+    case 'rainy':
+      return 'chuvoso';
+    case 'rain':
+      return 'chuva';
+    default:
+      return 'impreciso';
+  }
+}

@@ -169,7 +169,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "${data.daily[index].weather[0].description.toString().toTitleCase()} / Humidade: ${data.daily[index].humidity.toString()}%",
+          "${translateWeather(data.daily[index].weather[0].description.toString()).toTitleCase()} / Humidade: ${data.daily[index].humidity.toString()}%",
           style: widget.weatherDetailsTextStyle ??
               TextStyle(
                 fontSize: 12,

@@ -64,76 +64,77 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   String? currentTemp = "25";
   String? todayTemp = "25";
   int? index = 0;
+  
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: widget._weatherBloc.subject.stream,
-        builder: (context, snapshot) {
-          if (snapshot.hasData && widget._location != null) {
-            WeatherModel? data = snapshot.data as WeatherModel;
-            todayTemp = data.current.temp.toString();
-            return Container(
-              height: widget.height == null || widget.height! < 180 ? 180 : widget.height,
-              width: widget.width ?? MediaQuery.of(context).size.width,
-              padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              margin: widget.margin ?? EdgeInsets.all(0),
-              decoration: BoxDecoration(
-                color: widget.color ?? Colors.white,
-                borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
-              ),
-              child: Column(
-                mainAxisAlignment: widget.alignment ?? MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget._location,
-                            style: widget.locationTextStyle ??
-                                TextStyle(
-                                  fontSize: 23,
-                                  color: widget.locationColor ?? Colors.grey[800],
-                                ),
-                          ),
-                          humidityAndWind(snapshot.data, index),
-                        ],
+      stream: widget._weatherBloc.subject.stream,
+      builder: (context, snapshot) {
+        if (snapshot.hasData && widget._location != null) {
+          WeatherModel? data = snapshot.data as WeatherModel;
+          todayTemp = data.current.temp.toString();
+          return Container(
+            height: widget.height == null || widget.height! < 180 ? 180 : widget.height,
+            width: widget.width ?? MediaQuery.of(context).size.width,
+            padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            margin: widget.margin ?? EdgeInsets.all(0),
+            decoration: BoxDecoration(
+              color: widget.color ?? Colors.white,
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(10)
+            ),
+            child: Column(
+              mainAxisAlignment: widget.alignment ?? MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget._location,
+                          style: widget.locationTextStyle ?? TextStyle(
+                            fontSize: 23,
+                            color: widget.locationColor ?? Colors.grey[800]
+                          )
+                        ),
+                        humidityAndWind(snapshot.data, index),
+                      ]
+                    ),
+                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text(
+                        "${currentTemp!.substring(0, 2) == "25" ? data.current.temp.toString().substring(0, 2) : currentTemp!.substring(0, 2)}",
+                        style: widget.temperatureTextStyle ?? TextStyle(
+                          fontSize: 59,
+                          color: widget.temperatureColor ?? Colors.grey[700],
+                          fontWeight: FontWeight.w300,
+                          fontFamily: "Poppin",
+                          height: 1
+                        )
                       ),
-                      Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                        Text(
-                          "${currentTemp!.substring(0, 2) == "25" ? data.current.temp.toString().substring(0, 2) : currentTemp!.substring(0, 2)}",
-                          style: widget.temperatureTextStyle ??
-                              TextStyle(
-                                  fontSize: 59,
-                                  color: widget.temperatureColor ?? Colors.grey[700],
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppin",
-                                  height: 1),
-                        ),
-                        Text(
-                          "°C",
-                          style: widget.temperatureScaleTextStyle ??
-                              TextStyle(
-                                fontSize: 15,
-                                color: widget.temperatureColor ?? Colors.grey[700],
-                              ),
-                        ),
-                      ]),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  weatherDayWidget(data),
-                ],
-              ),
-            );
-          }
-          return Container();
-        });
+                      Text(
+                        "°C",
+                        style: widget.temperatureScaleTextStyle ??
+                            TextStyle(
+                              fontSize: 15,
+                              color: widget.temperatureColor ?? Colors.grey[700]
+                            )
+                      )
+                    ])
+                  ]
+                ),
+                const SizedBox(
+                  height: 10
+                ),
+                weatherDayWidget(data)
+              ]
+            )
+          );
+        }
+        return Container();
+      }
+    );
   }
 
   Widget weatherDayWidget(WeatherModel? weather) {
@@ -150,8 +151,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           return _columnBuilder(
             index: index,
             day: currentDay
-                ? "Today"
-                : DateFormat('EEEE').format(DateTime.fromMillisecondsSinceEpoch(data[index].dt * 1000)).substring(0, 3),
+                ? "Hoje"
+                : DateFormat('EEEE', 'pt_Br').format(DateTime.fromMillisecondsSinceEpoch(data[index].dt * 1000)).substring(0, 3),
             max: data[index].temp.max.toString().substring(0, 2),
             min: data[index].temp.min.toString().substring(0, 2),
             weatherId: data[index].weather[0].id,

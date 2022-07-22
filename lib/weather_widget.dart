@@ -199,7 +199,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
       child: Padding(
         padding: const EdgeInsets.only(right: 12),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: this.index == index
               ? BoxDecoration(
                   color: widget.activeColor ?? Colors.grey[100],

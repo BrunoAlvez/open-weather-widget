@@ -173,6 +173,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           style: widget.weatherDetailsTextStyle ??
               TextStyle(
                 fontSize: 12,
+                color: Colors.black
               ),
         ),
         Text(
@@ -181,6 +182,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               TextStyle(
                 fontSize: 12,
                 height: 1.5,
+                color: Colors.black
               ),
         ),
       ],
@@ -199,7 +201,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
       child: Padding(
         padding: const EdgeInsets.only(right: 12),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
           decoration: this.index == index
               ? BoxDecoration(
                   color: widget.activeColor ?? Colors.grey[100],
@@ -218,27 +220,28 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               ),
               BoxedIcon(
                 iconData,
-                color: widget.iconColor ?? Colors.black,
+                color: widget.iconColor ?? Colors.black
               ),
               RichText(
+                overflow: TextOverflow.visible,
                   text: TextSpan(children: [
                 TextSpan(
-                    text: " $max°",
+                    text: " $max° ",
                     style: widget.maxTemperatureTextStyle ??
                         TextStyle(
                           fontSize: 10,
                           color: widget.weatherTextColor ?? Colors.black,
                           fontWeight: FontWeight.w400,
-                          // fontFamily: "Poppins",
+                          fontFamily: "Poppins"
                         )),
                 TextSpan(
-                    text: "  $min°",
+                    text: " $min° ",
                     style: widget.minTemperatureTextStyle ??
                         TextStyle(
                           fontSize: 10,
                           color: widget.weatherTextColor ?? Colors.black,
                           fontWeight: FontWeight.w300,
-                          // fontFamily: "Poppins",
+                          fontFamily: "Poppins"
                         ))
               ])),
             ],

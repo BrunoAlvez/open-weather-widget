@@ -1,5 +1,5 @@
-import 'package:open_weather_widget/weather_model.dart';
-import 'package:open_weather_widget/weather_repo.dart';
+import 'package:open_weather_widget/models/weather_model.dart';
+import 'package:open_weather_widget/repository/weather_repo.dart';
 import 'package:rxdart/rxdart.dart';
 
 class WeatherBloc {

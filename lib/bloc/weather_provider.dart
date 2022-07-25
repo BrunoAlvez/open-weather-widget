@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:open_weather_widget/weather_model.dart';
+import 'package:open_weather_widget/models/weather_model.dart';
 
 class WeatherApiProvider {
   final Dio _dio = Dio();

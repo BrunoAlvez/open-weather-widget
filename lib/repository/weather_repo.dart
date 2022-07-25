@@ -1,5 +1,5 @@
-import 'package:open_weather_widget/weather_model.dart';
-import 'package:open_weather_widget/weather_provider.dart';
+import 'package:open_weather_widget/bloc/weather_provider.dart';
+import 'package:open_weather_widget/models/weather_model.dart';
 
 class WeatherRepository {
   WeatherApiProvider _apiProvider = WeatherApiProvider();

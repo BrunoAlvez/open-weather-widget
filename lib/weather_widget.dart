@@ -218,7 +218,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                 height: 60,
                 child: Image(
                   image: AssetImage(
-                    'assets/img/icons8-aguaceiro-100.png', 
+                    weatherIcon(weatherId), 
                     package: 'open_weather_widget',
                   )
                 )

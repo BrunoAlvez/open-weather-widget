@@ -123,7 +123,11 @@ String translateWeather(String description) {
     case 'scattered clouds':
       return 'nuvens espalhadas';
     case 'broken clouds':
+      return 'nuvens isoladas';
+    case 'few clouds':
       return 'poucas nuvens';
+    case 'overcast clouds':
+      return 'nublado';
     case 'light rain':
       return 'chuva suave';
     case 'heavy rain':
@@ -132,6 +136,8 @@ String translateWeather(String description) {
       return 'chuvoso';
     case 'rain':
       return 'chuva';
+    case 'moderate rain':
+      return 'chuva moderada';
     default:
       return 'impreciso';
   }

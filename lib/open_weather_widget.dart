@@ -17,6 +17,7 @@ class OpenWeatherWidget extends StatefulWidget {
       this.alignment,
       this.margin,
       this.locationColor,
+      this.descriptionWeatherColor,
       this.color,
       this.temperatureColor,
       this.borderRadius,
@@ -42,6 +43,7 @@ class OpenWeatherWidget extends StatefulWidget {
   final EdgeInsetsGeometry? margin;
   final MainAxisAlignment? alignment;
   final Color? locationColor;
+  final Color? descriptionWeatherColor;
   final Color? color;
   final Color? temperatureColor;
   final BorderRadiusGeometry? borderRadius;
@@ -85,6 +87,7 @@ class _OpenWeatherWidgetState extends State<OpenWeatherWidget> {
       activeColor: widget.activeColor,
       color: widget.color,
       locationColor: widget.locationColor,
+      descriptionWeatherColor: widget.descriptionWeatherColor,
       temperatureColor: widget.temperatureColor,
       weatherTextColor: widget.weatherTextColor,
       iconColor: widget.iconColor,

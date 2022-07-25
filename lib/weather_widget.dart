@@ -16,6 +16,7 @@ class WeatherWidget extends StatefulWidget {
     this.margin,
     this.alignment,
     this.locationColor,
+    this.descriptionWeatherColor,
     this.color,
     this.temperatureColor,
     this.borderRadius,
@@ -42,6 +43,7 @@ class WeatherWidget extends StatefulWidget {
   final EdgeInsetsGeometry? margin;
   final MainAxisAlignment? alignment;
   final Color? locationColor;
+  final Color? descriptionWeatherColor;
   final Color? color;
   final Color? temperatureColor;
   final BorderRadiusGeometry? borderRadius;
@@ -173,7 +175,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           style: widget.weatherDetailsTextStyle ??
               TextStyle(
                 fontSize: 12,
-                color: Colors.black
+                color: widget.descriptionWeatherColor
               ),
         ),
         Text(
@@ -182,7 +184,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
               TextStyle(
                 fontSize: 12,
                 height: 1.5,
-                color: Colors.black
+                color: widget.descriptionWeatherColor
               ),
         ),
       ],

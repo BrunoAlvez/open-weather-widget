@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:open_weather_widget/weather_helper.dart';
 import 'package:open_weather_widget/weather_model.dart';
-import 'package:weather_icons/weather_icons.dart';
 import './string_utils.dart';
 
 class WeatherWidget extends StatefulWidget {
@@ -76,9 +75,9 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           WeatherModel? data = snapshot.data as WeatherModel;
           todayTemp = data.current.temp.toString();
           return Container(
-            height: widget.height == null || widget.height! < 180 ? 180 : widget.height,
+            height: widget.height == null || widget.height! < 200 ? 200 : widget.height,
             width: widget.width ?? MediaQuery.of(context).size.width,
-            padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 14, vertical: 3),
             margin: widget.margin ?? EdgeInsets.all(0),
             decoration: BoxDecoration(
               color: widget.color ?? Colors.white,
@@ -126,9 +125,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                     ])
                   ]
                 ),
-                const SizedBox(
-                  height: 10
-                ),
+                const SizedBox(height: 10),
                 weatherDayWidget(data)
               ]
             )
@@ -141,7 +138,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
 
   Widget weatherDayWidget(WeatherModel? weather) {
     return SizedBox(
-      height: 70,
+      height: 100,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -192,7 +189,6 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   }
 
   Widget _columnBuilder({int? index, String? day, String? max, String? min, int? weatherId, bool? isToday, String? current}) {
-    IconData iconData = weatherIcon(weatherId);
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -204,25 +200,28 @@ class _WeatherWidgetState extends State<WeatherWidget> {
         padding: const EdgeInsets.only(right: 12),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-          decoration: this.index == index
-              ? BoxDecoration(
-                  color: widget.activeColor ?? Colors.grey[100],
-                  borderRadius: widget.activeBorderRadius ?? BorderRadius.circular(5))
-              : null,
+          decoration: this.index == index ? BoxDecoration(
+            color: widget.activeColor ?? Colors.grey[100],
+            borderRadius: widget.activeBorderRadius ?? BorderRadius.circular(5)
+          ) : null,
           child: Column(
             children: [
               Text(
                 day!.toUpperCase(),
-                style: widget.weekdayTextStyle ??
-                    TextStyle(
-                      fontSize: 11,
-                      fontFamily: "Poppins",
-                      color: widget.weatherTextColor ?? Colors.black,
-                    ),
+                style: widget.weekdayTextStyle ?? TextStyle(
+                  fontSize: 11,
+                  fontFamily: "Poppins",
+                  color: widget.weatherTextColor ?? Colors.black,
+                )
               ),
-              BoxedIcon(
-                iconData,
-                color: widget.iconColor ?? Colors.black
+              SizedBox(
+                height: 60,
+                child: Image(
+                  image: AssetImage(
+                    'assets/img/icons8-aguaceiro-100.png', 
+                    package: 'open_weather_widget',
+                  )
+                )
               ),
               RichText(
                 overflow: TextOverflow.visible,
@@ -231,7 +230,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                     text: " $max° ",
                     style: widget.maxTemperatureTextStyle ??
                         TextStyle(
-                          fontSize: 10,
+                          fontSize: 12,
                           color: widget.weatherTextColor ?? Colors.black,
                           fontWeight: FontWeight.w400,
                           fontFamily: "Poppins"
@@ -240,7 +239,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                     text: " $min° ",
                     style: widget.minTemperatureTextStyle ??
                         TextStyle(
-                          fontSize: 10,
+                          fontSize: 12,
                           color: widget.weatherTextColor ?? Colors.black,
                           fontWeight: FontWeight.w300,
                           fontFamily: "Poppins"

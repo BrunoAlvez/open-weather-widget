@@ -21,14 +21,32 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-# The following section is specific to Flutter.
-flutter: null
-
-# To add assets to your package, add an assets section, like this:
-# assets:
-#   - assets/
+flutter: 
+  assets:
+    - assets/img/icons8-aguaceiro-100.png
+    - assets/img/icons8-biruta-100.png
+    - assets/img/icons8-chuva-100.png
+    - assets/img/icons8-chuva-com-neve-100.png
+    - assets/img/icons8-chuva-intensa-100.png
+    - assets/img/icons8-chuva-leve-100.png
+    - assets/img/icons8-chuva-pesada-100.png
+    - assets/img/icons8-clima-ventoso-100.png
+    - assets/img/icons8-dia-de-nevoeiro-100.png
+    - assets/img/icons8-dia-parcialmente-nublado-100.png
+    - assets/img/icons8-fog-100.png
+    - assets/img/icons8-granizo-100.png
+    - assets/img/icons8-hurricane-100.png
+    - assets/img/icons8-inverno-100.png
+    - assets/img/icons8-neve-100.png
+    - assets/img/icons8-nuvem-com-raios-100.png
+    - assets/img/icons8-nuvens-100.png
+    - assets/img/icons8-poeira-100.png
+    - assets/img/icons8-sol-100.png
+    - assets/img/icons8-storm-with-heavy-rain-100.png
+    - assets/img/icons8-tempestade-100.png
+    - assets/img/icons8-tornado-100.png
+    - assets/img/icons8-vento-100.png
+    - assets/img/icons8-verão-100.png
 
 # For details regarding assets in packages, see
 # https://flutter.dev/assets-and-images/#from-packages

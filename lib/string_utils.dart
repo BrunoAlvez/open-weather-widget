@@ -1,8 +1,4 @@
 String? convertToTitleCase(String text) {
-  if (text == null) {
-    return null;
-  }
-
   if (text.length <= 1) {
     return text.toUpperCase();
   }

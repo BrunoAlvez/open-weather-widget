@@ -7,8 +7,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-  String apiKey = "856822fd8e22db5e1ba48c0e7d69844a";
+  const MyApp({Key? key}) : super(key: key);
+  final String apiKey = "856822fd8e22db5e1ba48c0e7d69844a";
 
   @override
   Widget build(BuildContext context) {

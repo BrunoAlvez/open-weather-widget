@@ -124,7 +124,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
           activeWeatherDetail(snapshot, data),
           const SizedBox(height: 10),
           weatherDayWidget(data),
-          buildRefreshWeatherButton()
+          if (widget.showRefreshWeatherButton) buildRefreshWeatherButton()
         ]
       )
     );

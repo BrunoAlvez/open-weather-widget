@@ -32,7 +32,8 @@ class OpenWeatherWidget extends StatefulWidget {
     this.maxTemperatureTextStyle,
     this.minTemperatureTextStyle,
     this.temperatureScaleTextStyle,
-    this.reloadTime = const Duration(minutes: 60)
+    this.reloadTime = const Duration(minutes: 60),
+    this.showRefreshWeatherButton = true
   }) : super(key: key);
 
   final String apiKey;
@@ -61,6 +62,7 @@ class OpenWeatherWidget extends StatefulWidget {
   final TextStyle? minTemperatureTextStyle;
   final TextStyle? temperatureScaleTextStyle;
   final Duration? reloadTime;
+  final bool showRefreshWeatherButton;
 
   @override
   _OpenWeatherWidgetState createState() => _OpenWeatherWidgetState();
@@ -84,6 +86,7 @@ class _OpenWeatherWidgetState extends State<OpenWeatherWidget> {
       location: widget.location,
       weatherBloc: weatherBloc,
       reloadTime: widget.reloadTime,
+      showRefreshWeatherButton: widget.showRefreshWeatherButton,
       height: widget.height,
       width: widget.width,
       padding: widget.padding,

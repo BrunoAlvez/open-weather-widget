@@ -33,7 +33,8 @@ class WeatherWidget extends StatefulWidget {
     this.maxTemperatureTextStyle,
     this.minTemperatureTextStyle,
     this.temperatureScaleTextStyle,
-    this.reloadTime
+    this.reloadTime,
+    required this.showRefreshWeatherButton
   }) : 
     _location = location,
     _weatherBloc = weatherBloc;
@@ -62,6 +63,7 @@ class WeatherWidget extends StatefulWidget {
   final TextStyle? minTemperatureTextStyle;
   final TextStyle? temperatureScaleTextStyle;
   final Duration? reloadTime;
+  final bool showRefreshWeatherButton;
 
   @override
   _WeatherWidgetState createState() => _WeatherWidgetState();
